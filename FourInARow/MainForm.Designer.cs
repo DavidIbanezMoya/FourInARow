@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Windows;
+using System;
 
 namespace FourInARow
 {
@@ -34,28 +35,37 @@ namespace FourInARow
         {
             this.startButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            //Placing the button
-            this.startButton.Text = "Start new game";
-            this.startButton.Location = new System.Drawing.Point(this.ClientSize.Height, this.ClientSize.Width);
+            // 
+            // startButton
+            // 
+            this.startButton.Location = new System.Drawing.Point(315, 204);
+            this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(100, 35);
-            this.startButton.Visible = true;
-
+            this.startButton.TabIndex = 0;
+            this.startButton.Text = "Start new game";
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.startButton);
             this.Name = "MainForm";
             this.Text = "Four in row";
-            this.Controls.Add(startButton);
-
-
-
             this.ResumeLayout(false);
 
         }
 
+
+        //Displaying the gameScreen
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            GameScreen gs = new GameScreen();
+            this.Visible = false;
+            gs.Visible = true;
+            Show(gs);
+        }
         #endregion
     }
 }
