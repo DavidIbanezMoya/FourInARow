@@ -65,6 +65,7 @@ namespace FourInARow
             this.Visible = false;
             gs.Visible = true;
             Show(gs);
+            Hide();
         }
         #endregion
     }
